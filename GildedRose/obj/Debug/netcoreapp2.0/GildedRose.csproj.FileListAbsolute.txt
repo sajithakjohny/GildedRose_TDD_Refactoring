@@ -1,0 +1,12 @@
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\bin\Debug\netcoreapp2.0\GildedRose.deps.json
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\bin\Debug\netcoreapp2.0\GildedRose.runtimeconfig.json
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\bin\Debug\netcoreapp2.0\GildedRose.runtimeconfig.dev.json
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\bin\Debug\netcoreapp2.0\GildedRose.dll
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\bin\Debug\netcoreapp2.0\GildedRose.pdb
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\obj\Debug\netcoreapp2.0\GildedRose.csproj.AssemblyReference.cache
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\obj\Debug\netcoreapp2.0\GildedRose.AssemblyInfoInputs.cache
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\obj\Debug\netcoreapp2.0\GildedRose.AssemblyInfo.cs
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\obj\Debug\netcoreapp2.0\GildedRose.csproj.CoreCompileInputs.cache
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\obj\Debug\netcoreapp2.0\GildedRose.dll
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\obj\Debug\netcoreapp2.0\GildedRose.pdb
+C:\CNHI-KT\tddWorkshop\05-GildedRose\csharp-dotnetcore\GildedRose\obj\Debug\netcoreapp2.0\GildedRose.genruntimeconfig.cache
