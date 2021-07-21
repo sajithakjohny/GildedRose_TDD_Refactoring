@@ -6,97 +6,110 @@ namespace Katas
     public class GildedRose
     {
         private static IList<Item> items = null;
-
         public static void Main(string[] args)
         {
             Console.WriteLine("OMGHAI!");
-
-			items = new List<Item>();
-			items.Add(new Item("+5 Dexterity Vest", 10, 20));
-			items.Add(new Item("Aged Brie", 2, 0));
-			items.Add(new Item("Elixir of the Mongoose", 5, 7));
-			items.Add(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
-			items.Add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
-			items.Add(new Item("Conjured Mana Cake", 3, 6));
-
-			updateQuality(items);
+            items = new List<Item>();
+            items.Add(new Item("+5 Dexterity Vest", 10, 20));
+            items.Add(new Item("Aged Brie", 2, 0));
+            items.Add(new Item("Elixir of the Mongoose", 5, 7));
+            items.Add(new Item("Sulfuras, Hand of Ragnaros", 0, 80));
+            items.Add(new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20));
+            items.Add(new Item("Conjured Mana Cake", 3, 6));
+            updateQuality(items);
         }
-		public static void updateQuality(IList<Item> items)
-		{
-			for (int i = 0; i < items.Count; i++)
-			{
-			//	switch(i >0)
-			//{
-			//		case (!"Aged Brie".Equals(items[i].Name) and 
-			//		!"Backstage passes to a TAFKAL80ETC concert".Equals(items[i].Name):
-			//		break;
-			//}
-				if ((!"Aged Brie".Equals(items[i].Name)) && !"Backstage passes to a TAFKAL80ETC concert".Equals(items[i].Name))
-				{
-					if (items[i].Quality > 0)
-					{
-						if (!"Sulfuras, Hand of Ragnaros".Equals(items[i].Name))
-						{
-							items[i].Quality = items[i].Quality - 1;
-						}
-					}
-				}
-				else
-				{
-					if (items[i].Quality < 50)
-					{
-						items[i].Quality = items[i].Quality + 1;
+        public static void updateQuality(IList<Item> items)
+        {
+            foreach (Item item in items)
+            {
+                switch (item.Name)
+                {
+                    case "Aged Brie":
+                        checkAgedBrieCase(item);
+                        break;
+                    case "Backstage passes to a TAFKAL80ETC concert":
+                        checkBackstageCase(item);
+                        break;
+                    case "Sulfuras, Hand of Ragnaros":
+                        break;
+                    case "Conjured Mana Cake":
+                        checkConjuredCase(item);
+                        break;
+                    default:
+                        checkDefaultCase(item);
+                        break;
+                }
+                setDefaultQuality(item);
+            }
+        }
+        private static void setDefaultQuality(Item item)
+        {
+            if (item.Quality < 0)
+            {
+                item.Quality = 0;
+            }
+            else if (item.Quality > 50)
+            {
+                item.Quality = 50;
+            }
+        }
+        private static void checkAgedBrieCase(Item item)
+        {
+            if (item.SellIn > 0)
+            {
+                item.SellIn = item.SellIn - 1;
+            }
+            if (item.Quality < 50)
+            {
+                item.Quality = item.Quality + 1;
+            }
+        }
+        private static void checkBackstageCase(Item item)
+        {
+            if (item.Quality > 0)
+            {
+                switch(item.SellIn < 0 ? 0 :
+                item.SellIn < 6 ? 1 : 
+                item.SellIn < 11 ? 2 : 3)
+                {
+                    case 0:
+                        item.Quality = 0;
+                        break;
+                    case 1:
+                        item.Quality = item.Quality + 3;
+                        break;
+                    case 2:
+                        item.Quality = item.Quality + 2;
+                        break;
+                    case 3:
+                        item.Quality = item.Quality + 1;
+                        break;
+                }
+            }
 
-						if ("Backstage passes to a TAFKAL80ETC concert".Equals(items[i].Name))
-						{
-							if (items[i].SellIn < 11)
-							{
-								if (items[i].Quality < 50)
-								{
-									items[i].Quality = (items[i].Quality + 1);
-									if (items[i].SellIn < 6)
-									{
-										items[i].Quality = (items[i].Quality + 1);
-									}
-								}
-							}
-						}
-					}
-				}
+            if (item.SellIn > 0)
+            {
+                item.SellIn = item.SellIn - 1;
+            }
+        }
+        private static void checkConjuredCase(Item item)
+        {
+            item.Quality = item.Quality - 2;
+            item.SellIn = item.SellIn - 1;
+            if (item.SellIn < 0 && item.Quality > 0)
+            {
+                item.Quality = item.Quality - 2;
+            }
+        }
+        private static void checkDefaultCase(Item item)
+        {
+            if (item.SellIn < 0 && item.Quality > 0)
+            {
+                item.Quality = item.Quality - 1;
+            }
+            item.SellIn = item.SellIn - 1;
+            item.Quality = item.Quality - 1;
+        }
 
-				if (!"Sulfuras, Hand of Ragnaros".Equals(items[i].Name))
-				{
-					items[i].SellIn = (items[i].SellIn - 1);
-				}
-
-				if (items[i].SellIn < 0)
-				{
-					if (!"Aged Brie".Equals(items[i].Name))
-					{
-						if (!"Backstage passes to a TAFKAL80ETC concert".Equals(items[i].Name))
-						{
-							if (items[i].Quality > 0)
-							{
-								if (!"Sulfuras, Hand of Ragnaros".Equals(items[i].Name))
-								{
-									items[i].Quality = (items[i].Quality - 1);
-								}
-							}
-						}
-						else
-						{
-							items[i].Quality = (items[i].Quality - items[i].Quality);
-						}
-					}
-					else
-					{
-						if (items[i].Quality < 50)
-						{
-							items[i].Quality = (items[i].Quality + 1);
-						}
-					}
-				}
-			}
-		}
     }
 }
