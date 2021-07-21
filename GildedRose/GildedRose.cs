@@ -44,25 +44,12 @@ namespace Katas
         }
         private static void setDefaultQuality(Item item)
         {
-            if (item.Quality < 0)
-            {
-                item.Quality = 0;
-            }
-            else if (item.Quality > 50)
-            {
-                item.Quality = 50;
-            }
+            item.Quality = item.Quality < 0 ? item.Quality = 0 : item.Quality > 50 ? item.Quality = 50 : item.Quality;
         }
         private static void checkAgedBrieCase(Item item)
         {
-            if (item.SellIn > 0)
-            {
-                item.SellIn = item.SellIn - 1;
-            }
-            if (item.Quality < 50)
-            {
-                item.Quality = item.Quality + 1;
-            }
+            item.SellIn =  item.SellIn > 0 ? item.SellIn - 1 : item.SellIn;
+            item.Quality = item.Quality < 50 ? item.Quality + 1 : item.Quality;
         }
         private static void checkBackstageCase(Item item)
         {
@@ -87,10 +74,8 @@ namespace Katas
                 }
             }
 
-            if (item.SellIn > 0)
-            {
-                item.SellIn = item.SellIn - 1;
-            }
+            item.SellIn = item.SellIn > 0 ? item.SellIn - 1 : item.SellIn;
+
         }
         private static void checkConjuredCase(Item item)
         {
